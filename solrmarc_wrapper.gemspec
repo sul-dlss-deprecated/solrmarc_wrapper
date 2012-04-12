@@ -8,7 +8,7 @@ Gem::Specification.new do |gem|
   gem.authors       = ["Naomi Dushay"]
   gem.email         = ["ndushay@stanford.edu"]
   gem.summary       = "Ruby wrapper for accessing SolrMarc methods"
-  gem.description   = "Contains SolrMarc instance and ruby code to use methods of interest"
+  gem.description   = "Ruby wrapper for accessing SolrMarc methods"
   gem.requirements  = "This gem must be run under JRuby, and also requires a solrmarc dist directory and solr url (see settings.yml)"
 
   gem.files         = `git ls-files`.split("\n")
