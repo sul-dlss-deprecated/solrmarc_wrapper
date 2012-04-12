@@ -7,8 +7,8 @@ Gem::Specification.new do |gem|
   gem.version       = SolrmarcWrapper::VERSION
   gem.authors       = ["Naomi Dushay"]
   gem.email         = ["ndushay@stanford.edu"]
-  gem.summary       = "Ruby wrapper for accessing SolrMarc methods"
-  gem.description   = "Ruby wrapper for accessing SolrMarc methods"
+  gem.summary       = "Ruby wrapper for accessing SolrMarc objects and Solr objects"
+  gem.description   = "Ruby wrapper for accessing SolrMarc objects and Solr objects, such as using org.solrmarc.marc.SolrReIndexer to get a SolrInputDocument from a marc record stored in the Solr index"
   gem.requirements  = "This gem must be run under JRuby, and also requires a solrmarc dist directory and solr url (see settings.yml)"
 
   gem.files         = `git ls-files`.split("\n")
