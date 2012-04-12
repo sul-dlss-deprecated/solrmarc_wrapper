@@ -1,0 +1,38 @@
+# Solrmarc::Wrapper
+
+Contains SolrMarc instance and ruby code to use methods of interest
+
+## Installation
+
+Add this line to your application's Gemfile:
+
+    gem 'solrmarc-wrapper'
+
+And then execute:
+
+    $ bundle
+
+Or install it yourself as:
+
+    $ gem install solrmarc-wrapper
+
+## Usage
+
+This gem must be run under JRuby, and also requires a solrmarc dist directory and solr url (see settings.yml)
+
+Example:  this retrieves the full marc record stored in the Solr index, runs it through SolrMarc indexing to get a SolrInputDocument from the marcxml
+It identifies Solr documents by the Solr "id" field, and expects the marc to be stored in a Solr field "marcxml"
+If there is no single document matching the id, an error is logged and nil is returned
+
+def solr_input_doc(id)
+   @solrmarc_wrapper.get_solr_input_doc_from_marcxml(id)
+end
+
+
+## Contributing
+
+1. Fork it
+2. Create your feature branch (`git checkout -b my-new-feature`)
+3. Commit your changes (`git commit -am 'Added some feature'`)
+4. Push to the branch (`git push origin my-new-feature`)
+5. Create new Pull Request
