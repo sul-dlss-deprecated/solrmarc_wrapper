@@ -1,14 +1,14 @@
 # settings for production
 prod:
   solrmarc_dist_dir: your_production_solrmarc_dist_dir
-  solrmarc_conf_props_file: sw_config.properties
+  solrmarc_conf_props_file: your_solrmarc_config.properties
   solr_url: http://127.0.0.1:8983/solr
   log_level: error
 
 # settings for running local tests
 test:
   solrmarc_dist_dir: your_solrmarc_dist_dir
-  solrmarc_conf_props_file: sw_config.properties
+  solrmarc_conf_props_file: your_solrmarc_config.properties
   solr_url: http://127.0.0.1:8983/solr
   log_level: info
 
