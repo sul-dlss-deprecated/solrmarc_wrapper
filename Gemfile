@@ -1,4 +1,4 @@
 source :rubygems
 
-# Specify your gem's dependencies in solrmarc_wrapper.gemspec
+# Please see solrmarc_wrapper.gemspec for this gem's dependencies
 gemspec
