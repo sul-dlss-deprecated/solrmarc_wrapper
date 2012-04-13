@@ -1,7 +1,7 @@
 require 'yard'
 require 'yard/rake/yardoc_task'
 
-namespace :solrmarc_wrapper do
+namespace :sm_wrap do
   
   # Use yard to build docs
   begin

@@ -15,6 +15,6 @@ end
 
 Dir.glob('lib/tasks/*.rake').each { |r| import r }
 
-namespace :solrmarc_wrapper do
+namespace :sm_wrap do
   task :default => :ci  
 end

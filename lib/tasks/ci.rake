@@ -1,6 +1,6 @@
 desc "run continuous integration suite (tests, coverage, docs)" 
 
-namespace :solrmarc_wrapper do
+namespace :sm_wrap do
 
   task :ci do 
     Rake::Task["rspec"].invoke
