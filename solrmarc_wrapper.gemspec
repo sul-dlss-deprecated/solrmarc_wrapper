@@ -1,6 +1,5 @@
 # -*- encoding: utf-8 -*-
-$:.push File.expand_path("../lib", __FILE__)
-require "solrmarc_wrapper/version"
+require File.join(File.dirname(__FILE__), "lib/solrmarc_wrapper/version")
 
 Gem::Specification.new do |gem|
   gem.name          = "solrmarc_wrapper"
@@ -9,7 +8,7 @@ Gem::Specification.new do |gem|
   gem.email         = ["ndushay@stanford.edu"]
   gem.summary       = "Ruby wrapper for accessing SolrMarc objects and Solr objects"
   gem.description   = "Ruby wrapper for accessing SolrMarc objects and Solr objects, such as using org.solrmarc.marc.SolrReIndexer to get a SolrInputDocument from a marc record stored in the Solr index"
-  gem.requirements  = "This gem must be run under JRuby, and also requires a solrmarc dist directory and solr url (see settings.yml)"
+  gem.requirements  = "This gem must be run under JRuby, and also requires a solrmarc dist directory and solr url (see config/settings.yml)"
 
   gem.files         = `git ls-files`.split("\n")
   gem.test_files    = `git ls-files -- {spec}/*`.split("\n")
@@ -28,5 +27,6 @@ Gem::Specification.new do |gem|
 	gem.add_development_dependency 'rspec'
 	gem.add_development_dependency 'simplecov'
 	gem.add_development_dependency 'simplecov-rcov'
+  gem.add_development_dependency "jettywrapper"
 
 end
