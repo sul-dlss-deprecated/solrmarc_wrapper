@@ -13,6 +13,8 @@ namespace :sm_wrap do
       mkdir_p(test_dir) unless Dir.exists?(test_dir)
       cp('spec/solr/solr.xml', 'test-jetty/solr/', :verbose => true)
       source_dir = "solrmarc/stanford-sw/solr/conf"
+      cp_r("test-jetty/solr/conf", dev_dir, :verbose => true)
+      cp_r("test-jetty/solr/conf", test_dir, :verbose => true)
       cp("#{source_dir}/schema.xml", dev_dir, :verbose => true)
       cp("#{source_dir}/schema.xml", test_dir, :verbose => true)
       cp("#{source_dir}/solrconfig-no-repl.xml", "#{dev_dir}/solrconfig.xml", :verbose => true)
