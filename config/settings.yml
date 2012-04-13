@@ -1,21 +1,20 @@
 # settings for production
 prod:
-  solrmarc_dist_dir: /home/blacklight/solrmarc-sw/dist
+  solrmarc_dist_dir: your_production_solrmarc_dist_dir
   solrmarc_conf_props_file: sw_config.properties
   solr_url: http://127.0.0.1:8983/solr
   log_level: error
 
 # settings for running local tests
 test:
-  solrmarc_dist_dir: /Users/ndushay/searchworks/solrmarc-sw/dist
+  solrmarc_dist_dir: your_solrmarc_dist_dir
   solrmarc_conf_props_file: sw_config.properties
-# FIXME:  this should be a local jetty with solr spun up from within the app for testing  
-  solr_url: http://sw-solr-gen.stanford.edu:8983/solr
+  solr_url: http://127.0.0.1:8983/solr
   log_level: info
 
 # settings for continuous integration
 ci:
-  solrmarc_dist_dir: /hudson/home/hudson/hudson/jobs/solrmarc-SW-dist/workspace/dist
+  solrmarc_dist_dir: /home/tomcat/.hudson/jobs/stanford-solr-marc DIST/workspace/dist
   solrmarc_conf_props_file: sw_config.properties
 # FIXME:  this should be a local jetty with solr spun up from within the app for testing  
   solr_url: http://sw-solr-gen.stanford.edu:8983/solr
