@@ -1,0 +1,21 @@
+<add>
+	<doc>
+		<str name="id">666</str>
+		<str name="marcxml">
+			<![CDATA[
+				<?xml version="1.0" encoding="UTF-8"?>
+				<collection xmlns="http://www.loc.gov/MARC21/slim">
+					<record>
+						<leader>01320ccm a2200277   4500</leader>
+						<controlfield tag="001">a666</controlfield>
+						<controlfield tag="008">750409s1961||||enk           ||| | eng  </controlfield>
+						<datafield tag="245" ind1=" " ind2="0">
+							<subfield code="a">Sonata no. 7, in B flat, for violoncello and piano.</subfield>
+							<subfield code="c">Edited with realization of the basso continuo by Fritz Spiegl and Walter Bergamnn. Violoncello part edited by Joan Dickson.</subfield>
+						</datafield>
+					</record>
+				</collection>
+			]]>
+		</str>
+	</doc>
+</add>
