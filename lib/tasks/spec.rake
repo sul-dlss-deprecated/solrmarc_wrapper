@@ -12,8 +12,8 @@ namespace :sm_wrap do
       :startup_wait => 25
     })
     error = Jettywrapper.wrap(jetty_params) do 
-#      `sh ./scripts/curl_delete_solr.sh`
-#      `sh ./scripts/curl_to_solr.sh`
+      `sh ./spec/scripts/curl_empty_test_solr.sh`
+      `sh ./spec/scripts/curl_add_bare666_to_test.sh`
       Rake::Task['sm_wrap:rspec_core'].invoke
     end
     raise "test failures: #{error}" if error
