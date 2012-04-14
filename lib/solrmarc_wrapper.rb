@@ -33,7 +33,7 @@ class SolrmarcWrapper
     begin
       @solr_input_doc = @solrmarc_reindexer.getSolrInputDoc("id", doc_id, "marcxml")
     rescue java.lang.NullPointerException
-      @logger.error("Can't find single SearchWorks Solr document with id #{doc_id}")
+      @logger.error("Can't find single Solr document with id #{doc_id}")
       return nil
     end
     @solr_input_doc
@@ -44,9 +44,7 @@ protected
 
   # require all the necessary jars to use SolrMarc classes
   def load_solrmarc(solr_marc_dir)
-    require "#{solr_marc_dir}/StanfordSearchWorksSolrMarc.jar"
-    require "#{solr_marc_dir}/SolrMarc.jar"
-    Dir["#{solr_marc_dir}/lib/*.jar"].each {|jar_file| require jar_file }
+    Dir["#{solr_marc_dir}/**/*.jar"].each {|jar_file| require jar_file }
   end
 
   # initialize the @solrmarc_reindexer object
