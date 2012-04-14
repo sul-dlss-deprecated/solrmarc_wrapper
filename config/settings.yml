@@ -14,8 +14,8 @@ dev:
 
 # settings for continuous integration
 ci:
-  solrmarc_dist_dir: solrmarc/stanford-sw//dist
-  solrmarc_conf_props_file: solrmarc/stanford-sw/sw_config.properties
+  solrmarc_dist_dir: solrmarc/dist
+  solrmarc_conf_props_file: solrmarc/dist/sw_config.properties
   solr_url: http://127.0.0.1:8983/solr/test
   log_level: info
     
