@@ -3,11 +3,12 @@ require 'rspec/core/rake_task'
 namespace :sm_wrap do
 
   desc "Run all specs, with jetty instance running"
-  task :rspec => ['sm_wrap:jetty:config', 'sm_wrap:solrmarc:ant_dist_site'] do
+  task :rspec => ['sm_wrap:jetty:config_ci', 'sm_wrap:solrmarc:ant_dist_site'] do
     require 'jettywrapper'
     jetty_params = Jettywrapper.load_config.merge({
       :jetty_home => File.expand_path(File.dirname(__FILE__) + '../../../test-jetty'),
-      :solr_home => File.expand_path(File.dirname(__FILE__) + '../../../test-jetty/solr'), 
+      :solr_home => File.expand_path(File.dirname(__FILE__) + '../../../test-jetty/solr'),
+      :java_opts => "-Dsolr.data.dir='../../../test-jetty/solr/test/data",
       :jetty_port => 8983,
       :startup_wait => 25
     })
