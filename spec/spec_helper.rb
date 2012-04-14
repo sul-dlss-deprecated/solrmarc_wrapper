@@ -19,6 +19,6 @@ $LOAD_PATH.unshift(File.dirname(__FILE__))
 
 RSpec.configure do |config|
   # Set up the environment for testing and make all variables available to the specs
-  settings_env = ENV["SETTINGS"] ||= 'test'
+  settings_env = ENV["SETTINGS"] ||= 'dev'
   @@settings = Settings.new(settings_env)
 end
