@@ -7,34 +7,37 @@ namespace :sm_wrap do
     
     desc "Copy the Solr configs into the submodule test-jetty cores"
     task :config_ci do
-      dev_conf_dir = "test-jetty/solr/dev/conf"
+#      dev_conf_dir = "test-jetty/solr/dev/conf"
       test_conf_dir = "test-jetty/solr/test/conf"
 
-      mkdir_p(dev_conf_dir) unless Dir.exists?(dev_conf_dir)
+#      mkdir_p(dev_conf_dir) unless Dir.exists?(dev_conf_dir)
       mkdir_p(test_conf_dir) unless Dir.exists?(test_conf_dir)
 
       cp('spec/solr/solr.xml', 'test-jetty/solr/', :verbose => true)
 
       Dir["test-jetty/solr/conf/*"].each { |f| 
-        cp_r(f, dev_conf_dir, :verbose => true)
+#        cp_r(f, dev_conf_dir, :verbose => true)
         cp_r(f, test_conf_dir, :verbose => true)
       }
 
       source_dir = "solrmarc/stanford-sw/solr/conf"
-      cp("#{source_dir}/schema.xml", dev_conf_dir, :verbose => true)
+#      cp("#{source_dir}/schema.xml", dev_conf_dir, :verbose => true)
       cp("#{source_dir}/schema.xml", test_conf_dir, :verbose => true)
-      cp("#{source_dir}/solrconfig-no-repl.xml", "#{dev_conf_dir}/solrconfig.xml", :verbose => true)
+#      cp("#{source_dir}/solrconfig-no-repl.xml", "#{dev_conf_dir}/solrconfig.xml", :verbose => true)
       cp("#{source_dir}/solrconfig-no-repl.xml", "#{test_conf_dir}/solrconfig.xml", :verbose => true)
-      cp("#{source_dir}/stopwords_punctuation.txt", dev_conf_dir, :verbose => true)
+#      cp("#{source_dir}/stopwords_punctuation.txt", dev_conf_dir, :verbose => true)
       cp("#{source_dir}/stopwords_punctuation.txt", test_conf_dir, :verbose => true)
       
       # copy icu support
-      lucene_libs_dist_dir = "test-jetty/solr/contrib/analysis-extras/lucene-libs"
-      Dir["#{lucene_libs_dist_dir}/*"].each { |f|  
+      contrib_libs_dir = "test-jetty/solr/contrib"
+      Dir["#{contrib_libs_dir}/**/*.jar"].each { |f|  
         File.delete(f)
       }
-      Dir["solrmarc/stanford-sw/solr/lib/lucene*.jar"].each { |f|  
-        cp(f, lucene_libs_dist_dir, :verbose => true)
+      analysis_extras_jar_orig = "test-jetty/solr/lib/apache-solr-analysis-extras-3.5.0.jar"
+      File.delete(analysis_extras_jar_orig) if File.exists?(analysis_extras_jar_orig)
+      
+      Dir["solrmarc/stanford-sw/solr/lib/*.jar"].each { |f|  
+        cp(f, "test-jetty/solr/lib", :verbose => true)
       }
       
       cp("solrmarc/stanford-sw/solr/apache-solr-3.6-2012-03-12_06-37-07.war", "test-jetty/webapps/solr.war", :verbose => :true)
