@@ -5,42 +5,32 @@ require 'jettywrapper'
 namespace :sm_wrap do
   namespace :jetty do
     
-    desc "Copy the Solr configs into the submodule test-jetty cores"
-    task :config_ci do
-#      dev_conf_dir = "test-jetty/solr/dev/conf"
-      test_conf_dir = "test-jetty/solr/test/conf"
+    desc "Modify test jetty solr to be multicore"
+    task :config_ci => ['sm_wrap:solrmarc:setup_test_jetty'] do
+      # convert solr to multicore setup
 
-#      mkdir_p(dev_conf_dir) unless Dir.exists?(dev_conf_dir)
+      # copy the solr.xml file for multi-core to test jetty solr
+      jetty_solr_dir = "solrmarc/test/jetty/solr" 
+      cp('spec/solr/solr.xml', jetty_solr_dir, :verbose => true)
+
+      # set up solr dev and test conf directories
+      dev_conf_dir = "#{jetty_solr_dir}/dev/conf"
+      test_conf_dir = "#{jetty_solr_dir}/test/conf"
+      mkdir_p(dev_conf_dir) unless Dir.exists?(dev_conf_dir)
       mkdir_p(test_conf_dir) unless Dir.exists?(test_conf_dir)
-
-      cp('spec/solr/solr.xml', 'test-jetty/solr/', :verbose => true)
-
-      Dir["test-jetty/solr/conf/*"].each { |f| 
-#        cp_r(f, dev_conf_dir, :verbose => true)
+      single_core_conf_dir = "#{jetty_solr_dir}/conf"
+      Dir["#{single_core_conf_dir}/*"].each { |f| 
+        cp_r(f, dev_conf_dir, :verbose => true)
         cp_r(f, test_conf_dir, :verbose => true)
       }
-
-      source_dir = "solrmarc/stanford-sw/solr/conf"
-#      cp("#{source_dir}/schema.xml", dev_conf_dir, :verbose => true)
-      cp("#{source_dir}/schema.xml", test_conf_dir, :verbose => true)
-#      cp("#{source_dir}/solrconfig-no-repl.xml", "#{dev_conf_dir}/solrconfig.xml", :verbose => true)
-      cp("#{source_dir}/solrconfig-no-repl.xml", "#{test_conf_dir}/solrconfig.xml", :verbose => true)
-#      cp("#{source_dir}/stopwords_punctuation.txt", dev_conf_dir, :verbose => true)
-      cp("#{source_dir}/stopwords_punctuation.txt", test_conf_dir, :verbose => true)
       
-      # copy icu support
-      contrib_libs_dir = "test-jetty/solr/contrib"
-      Dir["#{contrib_libs_dir}/**/*.jar"].each { |f|  
-        File.delete(f)
+      require 'fileutils'
+      # remove single core conf directory
+      FileUtils.rm_rf("#{jetty_solr_dir}/conf/.", :verbose => true)
+      Dir.foreach(jetty_solr_dir + "/conf") { |f| 
+        fn = File.join(jetty_solr_dir, f)
+        File.delete(fn) if f != '.' && f != '..'
       }
-      analysis_extras_jar_orig = "test-jetty/solr/lib/apache-solr-analysis-extras-3.5.0.jar"
-      File.delete(analysis_extras_jar_orig) if File.exists?(analysis_extras_jar_orig)
-      
-      Dir["solrmarc/stanford-sw/solr/lib/*.jar"].each { |f|  
-        cp(f, "test-jetty/solr/lib", :verbose => true)
-      }
-      
-      cp("solrmarc/stanford-sw/solr/apache-solr-3.6-2012-03-12_06-37-07.war", "test-jetty/webapps/solr.war", :verbose => :true)
       
     end
 

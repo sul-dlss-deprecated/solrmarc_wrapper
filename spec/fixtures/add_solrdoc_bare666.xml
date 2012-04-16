@@ -1,7 +1,7 @@
 <add>
 	<doc>
-		<str name="id">666</str>
-		<str name="marcxml">
+		<field name="id">666</field>
+		<field name="marcxml">
 			<![CDATA[
 				<?xml version="1.0" encoding="UTF-8"?>
 				<collection xmlns="http://www.loc.gov/MARC21/slim">
@@ -16,6 +16,6 @@
 					</record>
 				</collection>
 			]]>
-		</str>
+		</field>
 	</doc>
 </add>
