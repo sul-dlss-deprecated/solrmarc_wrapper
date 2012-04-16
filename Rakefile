@@ -17,4 +17,5 @@ Dir.glob('lib/tasks/*.rake').each { |r| import r }
 
 namespace :sm_wrap do
   task :default => :ci  
+  task :rspec => :rspec_core
 end

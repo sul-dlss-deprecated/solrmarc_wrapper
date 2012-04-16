@@ -3,7 +3,8 @@ require 'rspec/core/rake_task'
 namespace :sm_wrap do
 
   desc "Run all specs, with jetty instance running"
-  task :rspec_wrapped => ['sm_wrap:jetty:config_ci', 'sm_wrap:solrmarc:ant_dist_site'] do
+  task :rspec_wrapped do
+#  task :rspec_wrapped => ['sm_wrap:jetty:config_ci', 'sm_wrap:solrmarc:ant_dist_site'] do
     test_jetty_dir = File.expand_path(File.dirname(__FILE__) + '../../../solrmarc/test/jetty')
     require 'jettywrapper'
     jetty_params = Jettywrapper.load_config.merge({
