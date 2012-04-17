@@ -20,7 +20,7 @@ Or install it yourself as:
 
 This gem must be run under JRuby, and also requires a solrmarc dist directory and solr url (see config/settings.yml)
 
-Example:  this retrieves the full marc record stored in the Solr index, runs it through SolrMarc indexing to get a SolrInputDocument from the marcxml.  It identifies Solr documents by the Solr "id" field, and expects the marc to be stored in a Solr field "marcxml".
+Example:  this retrieves the full marc record stored in the Solr index, runs it through SolrMarc indexing to get a SolrInputDocument from the marcxml.  It current identifies Solr documents by the Solr "id" field, and expects the marc to be stored in a Solr field "marcxml" (this will be configurable in a future version).
 
   def solr_input_doc(id)
     @solrmarc_wrapper.get_solr_input_doc_from_marcxml(id)
