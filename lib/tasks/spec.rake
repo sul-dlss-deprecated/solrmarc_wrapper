@@ -3,7 +3,7 @@ require 'rspec/core/rake_task'
 namespace :sm_wrap do
 
   desc "Run all specs, with jetty instance running"
-  task :rspec_wrapped => ['sm_wrap:solrmarc:ant_dist_site', 'sm_wrap:jetty:config_ci'] do
+  task :rspec_wrapped => ['sm_wrap:solrmarc:ant_dist_site', 'sm_wrap:jetty:config'] do
     test_jetty_dir = File.expand_path(File.dirname(__FILE__) + '../../../solrmarc/test/jetty')
     require 'jettywrapper'
     jetty_params = Jettywrapper.load_config.merge({
@@ -16,12 +16,12 @@ namespace :sm_wrap do
     error = Jettywrapper.wrap(jetty_params) do 
       `sh ./spec/scripts/curl_empty_test_solr.sh`
       `sh ./spec/scripts/curl_add_bare666_to_test.sh`
-      Rake::Task['sm_wrap:rspec_core'].invoke
+      Rake::Task['sm_wrap:rspec_plain'].invoke
     end
     raise "TEST FAILURES: #{error}" if error
   end
 
-  RSpec::Core::RakeTask.new(:rspec_core) do |spec|
+  RSpec::Core::RakeTask.new(:rspec_plain) do |spec|
     spec.rspec_opts = ["-c", "-f progress", "-r ./spec/spec_helper.rb"]
   end
 

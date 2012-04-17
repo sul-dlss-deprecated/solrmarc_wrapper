@@ -4,7 +4,7 @@ namespace :sm_wrap do
   namespace :jetty do
     
     desc "Modify test jetty solr to be multicore"
-    task :config_ci => ['sm_wrap:solrmarc:setup_test_jetty'] do
+    task :config => ['sm_wrap:solrmarc:setup_test_jetty'] do
 
       # copy the solr.xml file for multi-core to test jetty solr
       jetty_solr_dir = "solrmarc/test/jetty/solr" 
@@ -32,7 +32,7 @@ namespace :sm_wrap do
     end
 
     desc "Copies the SOLR config files and starts up the test-jetty instance"
-    task :load_ci => [:config_ci, 'jetty:start']
+    task :load => [:config, 'jetty:start']
 
   end
 end
