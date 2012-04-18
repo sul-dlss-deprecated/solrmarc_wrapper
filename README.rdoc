@@ -29,6 +29,8 @@ Example:  this retrieves the full marc record stored in the Solr index, runs it 
 
 == Contributing
 
+See also the wiki page for committers:  https://github.com/solrmarc/solrmarc_wrapper/wiki/For-Committers
+
 1. Fork it
 2. Create your feature branch (`git checkout -b my-new-feature`)
 3. Commit your changes (`git commit -am 'Added some feature'`)

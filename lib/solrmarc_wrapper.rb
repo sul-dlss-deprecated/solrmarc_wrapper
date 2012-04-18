@@ -11,7 +11,9 @@ class SolrmarcWrapper
 
   # @param solrmarc_dist_dir  distribution directory of SolrMarc build 
   # @param solrmarc_conf_props_fname  the name of the xx_config.properties file for SolrMarc, relative to solrmarc_dist_dir
-  # @param 
+  # @param solr_url  the base url of a running Solr server 
+  # @param log_level  level of Logger messages to output; defaults to Logger::INFO
+  # @param log_file  file to receive Logger output; defaults to STDERR
   # solr_url  base url of the solr instance
   def initialize(solrmarc_dist_dir, config_props_fname, solr_url, log_level=Logger::INFO, log_file=STDERR)
     if not defined? JRUBY_VERSION
