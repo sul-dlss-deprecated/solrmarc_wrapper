@@ -19,10 +19,10 @@ class SolrmarcWrapper
     if not defined? JRUBY_VERSION
       raise "SolrmarcWrapper only runs under jruby"
     end
-    load_solrmarc(solrmarc_dist_dir)
-    setup_solr_reindexer(solr_url, config_props_fname)
     @logger = Logger.new(log_file)
     @logger.level = log_level
+    load_solrmarc(solrmarc_dist_dir)
+    setup_solr_reindexer(solr_url, config_props_fname)
   end
 
   # retrieves the full marc rec
