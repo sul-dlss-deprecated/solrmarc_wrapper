@@ -1,0 +1,3 @@
+--title 'SolrmarcWrapper Documentation'
+lib/**/*.rb -
+README.rdoc LICENSE 
