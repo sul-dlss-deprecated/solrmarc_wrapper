@@ -1,6 +1,6 @@
 = SolrmarcWrapper
 
-{<img src="https://secure.travis-ci.org/sul-dlss/solrmarc_wrapper.png?branch=master" alt="Build Status" />}[http://travis-ci.org/sul-dlss/solrmarc_wrapper] {<img src="https://coveralls.io/repos/sul-dlss/solrmarc_wrapper/badge.png" alt="Coverage Status" />}[https://coveralls.io/r/sul-dlss/solrmarc_wrapper] {<img src="https://gemnasium.com/sul-dlss/solrmarc_wrapper.png" alt="Dependency Status" />}[https://gemnasium.com/sul-dlss/solrmarc_wrapper] {<img src="https://badge.fury.io/rb/solrmarc_wrapper.svg" alt="Gem Version" />}[http://badge.fury.io/rb/solrmarc_wrapper] {<img src="https://gemnasium.com/sul-dlss/solrmarc_wrapper.png" alt="Dependency Status" />}[https://gemnasium.com/sul-dlss/solrmarc_wrapper] 
+{<img src="https://secure.travis-ci.org/sul-dlss/solrmarc_wrapper.png?branch=master" alt="Build Status" />}[http://travis-ci.org/sul-dlss/solrmarc_wrapper] {<img src="https://coveralls.io/repos/sul-dlss/solrmarc_wrapper/badge.png" alt="Coverage Status" />}[https://coveralls.io/r/sul-dlss/solrmarc_wrapper] {<img src="https://gemnasium.com/sul-dlss/solrmarc_wrapper.png" alt="Dependency Status" />}[https://gemnasium.com/sul-dlss/solrmarc_wrapper] {<img src="https://badge.fury.io/rb/solrmarc_wrapper.svg" alt="Gem Version" />}[http://badge.fury.io/rb/solrmarc_wrapper]
 
 Ruby wrapper for accessing SolrMarc and Solr objects, such as using org.solrmarc.marc.SolrReIndexer to get a SolrInputDocument from a marc record stored in the Solr index.
 
