@@ -2,9 +2,6 @@
 require 'bundler/setup'
 require "bundler/gem_tasks"
 
-require 'rake'
-require 'bundler'
-
 begin
   Bundler.setup(:default, :development)
 rescue Bundler::BundlerError => e
@@ -15,8 +12,4 @@ end
 
 Dir.glob('lib/tasks/*.rake').each { |r| import r }
 
-namespace :sm_wrap do
-  task :default => :ci  
-  task :rspec => :rspec_plain
-  task :spec => :rspec_plain
-end
+task :default => :rspec_wrapped

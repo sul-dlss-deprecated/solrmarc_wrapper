@@ -9,14 +9,14 @@ prod:
 dev:
   solrmarc_dist_dir: your_solrmarc_dist_dir
   solrmarc_conf_props_file: your_solrmarc_config.properties
-  solr_url: http://127.0.0.1:8984/solr/dev
+  solr_url: your_dev_solr_url
   log_level: info
 
 # settings for continuous integration
 ci:
-  solrmarc_dist_dir: solrmarc/dist
+  solrmarc_dist_dir: solrmarc-sw/dist
   solrmarc_conf_props_file: sw_config.properties
-  solr_url: http://127.0.0.1:8984/solr/test
+  solr_url: http://localhost:8984/solr
   log_level: info
     
 # add:
