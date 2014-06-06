@@ -6,7 +6,6 @@ script:
   rake rspec_wrapped SETTINGS='ci'
 cache:
   directories:
-  - solrmarc
   - solrmarc-sw
 notifications:
   email:
