@@ -11,13 +11,13 @@ describe SolrmarcWrapper do
   it "retrieves the SolrInputDoc generated from the marc record" do
     sid = @solrmarc_wrapper.get_solr_input_doc_from_marcxml("666")
     expect(sid).to be_an_instance_of(Java::OrgApacheSolrCommon::SolrInputDocument)
-    sid["id"].getValue.should == "666"
-    sid["title_full_display"].getValue.should_not be_nil
+    expect(sid["id"].getValue).to eq("666")
+    expect(sid["title_full_display"].getValue).not_to be_nil
   end
   
   it "has a SolrInputDoc with the non-stored fields present" do
     sid = @solrmarc_wrapper.get_solr_input_doc_from_marcxml("666")
-    sid["title_245a_search"].getValue.should_not be_nil
+    expect(sid["title_245a_search"].getValue).not_to be_nil
   end
   
   it "logs an error message when there is no document in the Solr index for the ckey" do
