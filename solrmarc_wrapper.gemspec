@@ -26,7 +26,6 @@ Gem::Specification.new do |gem|
   # tests
   gem.add_development_dependency 'rspec'
   gem.add_development_dependency 'simplecov'
-  gem.add_development_dependency 'simplecov-rcov'
   gem.add_development_dependency "jettywrapper"
   gem.add_development_dependency "coveralls"
 
