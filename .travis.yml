@@ -5,6 +5,7 @@ rvm:
 script:
   rake rspec_wrapped SETTINGS='ci'
 before_script:
+  - rmdir solrmarc-sw >/dev/null 2>&1; true # possibly created by the cache directive below
   - rake clone_solrmarc
 cache:
   directories:
