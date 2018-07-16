@@ -46,7 +46,7 @@ protected
 
   # require all the necessary jars to use SolrMarc classes
   def load_solrmarc(solr_marc_dir)
-    Dir["#{solr_marc_dir}/**/*.jar"].each {|jar_file| require jar_file }
+    Dir["#{solr_marc_dir}/**/*.jar"].each {|jar_file| require File.expand_path(jar_file) }
   end
 
   # initialize the @solrmarc_reindexer object
