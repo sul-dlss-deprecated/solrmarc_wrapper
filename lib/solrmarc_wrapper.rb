@@ -3,15 +3,15 @@ include Java
 require "solrmarc_wrapper/version"
 require 'logger'
 
-# a way to use SolrMarc objects, 
+# a way to use SolrMarc objects,
 #  such as using SolrReIndexer to get a SolrInputDocument from a marc record stored in the Solr index.
 class SolrmarcWrapper
-  
+
   attr_accessor :logger
 
-  # @param solrmarc_dist_dir  distribution directory of SolrMarc build 
+  # @param solrmarc_dist_dir  distribution directory of SolrMarc build
   # @param solrmarc_conf_props_fname  the name of the xx_config.properties file for SolrMarc, relative to solrmarc_dist_dir
-  # @param solr_url  the base url of a running Solr server 
+  # @param solr_url  the base url of a running Solr server
   # @param log_level  level of Logger messages to output; defaults to Logger::INFO
   # @param log_file  file to receive Logger output; defaults to STDERR
   # solr_url  base url of the solr instance
@@ -26,7 +26,7 @@ class SolrmarcWrapper
   end
 
   # retrieves the full marc rec
-  # ord stored in the Solr index, runs it through SolrMarc indexing to get a SolrInputDocument 
+  # ord stored in the Solr index, runs it through SolrMarc indexing to get a SolrInputDocument
   #  note that it identifies Solr documents by the "id" field, and expects the marc to be stored in a Solr field "marcxml"
   #  if there is no single document matching the id, an error is logged and nil is returned
   # @param doc_id  the value of the "id" Solr field for the record to be retrieved
@@ -57,5 +57,5 @@ protected
     @solrmarc_reindexer = org.solrmarc.marc.SolrReIndexer.new(solr_core_loader)
     @solrmarc_reindexer.init([config_props_fname])
   end
-  
+
 end # module SolrmarcWrapper
