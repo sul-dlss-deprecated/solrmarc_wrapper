@@ -4,6 +4,8 @@ rvm:
   - jruby
 script:
   rake rspec_wrapped SETTINGS='ci'
+before_script:
+  - rake clone_solrmarc
 cache:
   directories:
   - solrmarc-sw
