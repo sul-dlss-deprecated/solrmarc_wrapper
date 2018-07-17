@@ -1,13 +1,12 @@
 language: ruby
 rvm:
   - jruby-19mode # JRuby in 1.9 mode
-  - jruby-head
-script: 
+  - jruby
+script:
   rake rspec_wrapped SETTINGS='ci'
+before_script:
+  - rmdir solrmarc-sw >/dev/null 2>&1; true # possibly created by the cache directive below
+  - rake clone_solrmarc
 cache:
   directories:
   - solrmarc-sw
-notifications:
-  email:
-    - ndushay@stanford.edu
-    - laneymcg@stanford.edu
